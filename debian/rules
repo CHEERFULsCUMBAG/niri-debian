@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+
+export CARGO_HOME=$(CURDIR)/debian/cargo-home
+export CARGO_TARGET_DIR=$(CURDIR)/target
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	cargo build --release
+
+override_dh_auto_install:
+	install -Dm755 target/release/niri \
+		debian/niri/usr/bin/niri
+
+	install -Dm755 resources/niri-session \
+		debian/niri/usr/bin/niri-session
+
+	install -Dm644 resources/niri.desktop \
+		debian/niri/usr/share/wayland-sessions/niri.desktop
+
+	install -Dm644 resources/niri-portals.conf \
+		debian/niri/usr/share/xdg-desktop-portal/niri-portals.conf
+
+	install -Dm644 resources/niri.service \
+		debian/niri/usr/lib/systemd/user/niri.service
+
+	install -Dm644 resources/niri-shutdown.target \
+		debian/niri/usr/lib/systemd/user/niri-shutdown.target

@@ -1,0 +1,46 @@
+name: Build niri Debian package
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *'   # daily check
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout packaging repo
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y \
+            build-essential clang pkg-config git \
+            rustc cargo \
+            libudev-dev libgbm-dev libxkbcommon-dev \
+            libegl1-mesa-dev libwayland-dev libinput-dev \
+            libdbus-1-dev libsystemd-dev libseat-dev \
+            libpipewire-0.3-dev libpango1.0-dev \
+            libcairo2-dev libdisplay-info-dev \
+            debhelper dh-make
+
+      - name: Detect latest upstream version
+        id: version
+        run: |
+          VERSION=$(scripts/update-upstream.sh)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Build package
+        run: |
+          scripts/build.sh "${{ steps.version.outputs.version }}"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: niri-debs
+          path: |
+            build/*.deb
+            build/*.changes
+            build/*.buildinfo

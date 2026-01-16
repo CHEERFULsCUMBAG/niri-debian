@@ -1,0 +1,12 @@
+Package: niri-dbgsym
+Source: niri
+Version: 25.11-1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Kennwood <kenn@unknown>
+Installed-Size: 39484
+Depends: niri (= 25.11-1)
+Section: debug
+Priority: optional
+Description: debug symbols for niri
+Build-Ids: 2a2281488c86958b1183998a88979186833b8cbb

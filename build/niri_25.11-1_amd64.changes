@@ -1,0 +1,34 @@
+Format: 1.8
+Date: Fri, 16 Jan 2026 21:09:31 +0000
+Source: niri
+Binary: niri niri-dbgsym
+Architecture: source amd64
+Version: 25.11-1
+Distribution: unstable
+Urgency: medium
+Maintainer: Kennwood <kenn@unknown>
+Changed-By: Kennwood <kenn@unknown>
+Description:
+ niri       - Niri Wayland compositor
+Changes:
+ niri (25.11-1) unstable; urgency=medium
+ .
+   * New upstream release 25.11
+Checksums-Sha1:
+ 85d959ca748c1254e406d9aede86bab2fb57d897 736 niri_25.11-1.dsc
+ 8bcd254573b20b6620cd29f4c71daba7b8285d85 2445509 niri_25.11-1.tar.gz
+ 6f82ee2957e6bc64da58d9b5e0c1bf251a86b121 22509112 niri-dbgsym_25.11-1_amd64.deb
+ 1dc579c45638a862ca8cc7190a02ec9825c50004 13834 niri_25.11-1_amd64.buildinfo
+ 414045df8d23cd9f0f1e382e6168ac5668af2b74 6399392 niri_25.11-1_amd64.deb
+Checksums-Sha256:
+ 0646fed9aac02b67ecbec17f0b5110ddba11aae206630602c3aaa1533d29e2b8 736 niri_25.11-1.dsc
+ 7108edfadebcada4c7bfbb07b757a40b7bdb0927f34904f5e85b2235d1808cbd 2445509 niri_25.11-1.tar.gz
+ 260b87bd76411218e1cc32ceb1bed8d018d39cb340edffb66b52caadb50ca04b 22509112 niri-dbgsym_25.11-1_amd64.deb
+ 779ffb0db008948d7c966a59c32c90b4ba43d9158d86b8bc39ee7f2e58c64082 13834 niri_25.11-1_amd64.buildinfo
+ c6993e325b6bc039cf84776e3760faf22ef2e3c4f39a3e5f0cdb25a36381ebb7 6399392 niri_25.11-1_amd64.deb
+Files:
+ 9c2580aec836bd9debbf93274d6d7955 736 wayland optional niri_25.11-1.dsc
+ 3a034c35311177aa84f2ca0935c7b842 2445509 wayland optional niri_25.11-1.tar.gz
+ d3bd1e94f4a388886b95b7170936a533 22509112 debug optional niri-dbgsym_25.11-1_amd64.deb
+ 03843d6d45583c47fad9d18ee1b10aa5 13834 wayland optional niri_25.11-1_amd64.buildinfo
+ 34b4ba0808efda8812c1855e1f89ef75 6399392 wayland optional niri_25.11-1_amd64.deb

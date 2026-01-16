@@ -1,0 +1,31 @@
+Source: niri
+Section: wayland
+Priority: optional
+Maintainer: Kennwood <kenn@unknown>
+Build-Depends:
+ debhelper-compat (= 13),
+ cargo,
+ rustc,
+ pkg-config,
+ clang,
+ libudev-dev,
+ libgbm-dev,
+ libxkbcommon-dev,
+ libegl1-mesa-dev,
+ libwayland-dev,
+ libinput-dev,
+ libdbus-1-dev,
+ libsystemd-dev,
+ libseat-dev,
+ libpipewire-0.3-dev,
+ libpango1.0-dev,
+ libcairo2-dev,
+ libdisplay-info-dev
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+
+Package: niri
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Niri Wayland compositor
+ Niri is a scrollable-tiling Wayland compositor.
