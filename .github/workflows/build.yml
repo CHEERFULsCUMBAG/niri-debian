@@ -44,3 +44,20 @@ jobs:
             build/*.deb
             build/*.changes
             build/*.buildinfo
+      - name: Create GitHub Release
+        if: success()
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "v${{ steps.version.outputs.version }}"
+          name: "niri ${{ steps.version.outputs.version }} (Debian)"
+          body: |
+            Automated Debian packages for niri ${{ steps.version.outputs.version }}.
+
+            Built from upstream tag v${{ steps.version.outputs.version }}.
+          files: |
+            build/*.deb
+            build/*.changes
+            build/*.buildinfo
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
